@@ -37,6 +37,14 @@ The part where ultrasonic triggers camera to capture photo was a tricky one  as 
 
 
 
+CIRCUIT CONNECTION:::::::
+ESEP32 CAM:: IO13 >>>> ULTRASOINC ECHOPIN
+ESEP32 CAM:: IO12 >>>> ULTRASOINC TRIGGERPIN
+ULTASONIC + >>>>>> +POWERSUPPPLY
+ULTASONIC - >>>>>> -POWERSUPPPLY
+
+
+
 Displaying Data on Website:
 This is a simple part where pyrebase library along with django framework is used..
 pyrebase establish connection with firebase storagebucket and showcase that data on website accordingly...
