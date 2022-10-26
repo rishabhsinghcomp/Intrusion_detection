@@ -1,0 +1,14 @@
+FOR ARDUINO PART:
+
+NTP CLIENT LIBRARY
+ESP32 LIBRARY
+FIREBASE_CLIENT_LIBRARY
+SPIFF(they are automatically installed if not then you can install them)
+
+
+
+
+
+FOR WEBSITE
+pip install pyrebase
+pip intsall django

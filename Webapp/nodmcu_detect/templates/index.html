@@ -1,0 +1,165 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+  
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<style>
+  div.gallery {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 250px;
+  }
+  
+  div.gallery:hover {
+    border: 1px solid #777;
+  }
+  
+  div.gallery img {
+    width: 100%;
+    height: auto;
+  }
+  
+  div.desc {
+    padding: 15px;
+    text-align: center;
+  }
+  </style>
+</head>
+
+
+<body style="background-color:#698ba7">
+
+
+
+<div class="heading" style="text-align: center; padding-top: 5%">
+  <h1>Intrusion Detector </h1>
+
+  <!-- <p>
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores velit
+    natus mollitia et itaque aut cupiditate ipsa odio abbr <br />
+    minima,recusandae beatae enim aliquam voluptates autem temporibus
+  </p> -->
+</div>
+
+<!-- <script>
+  setTimeout("location.reload(true);", 30000);
+  </script> -->
+
+
+
+
+<!-- not using this script as it cause error -->
+<!-- 
+<div id="display">
+
+
+</div>
+
+<script>
+$(document).ready(function(){
+
+setInterval(function(){
+    $.ajax({
+        type: 'GET',
+        url : "/is_intru",
+        success: function(response){
+            console.log(response);
+            $("#display").empty();
+            //after we have passed the message via getmessages func in views
+            // we are iterating it in below and repaeating the statemtn
+            for (var key in response.data)
+            {
+              //var temp="<div class='container hde'><b> <button type='button' class='collapsible'<h3> DATE- "+response.data[key][0]+"</button></h3></span></div> <div class='content'>";
+                var temp="<button type='button' class='collapsible'>DATE- "+response.data[key][0]+"</button>"
+                $("#display").append(temp);
+                var temp="<button type='button' class='collapsible'>TIME- "+response.data[key][1]+"</button>"
+                $("#display").append(temp);
+                var temp=" <img src="+response.data[key][2]+"alt='Girl in a jacket'>"
+                $("#display").append(temp);
+                
+            }
+        },
+        error: function(response){
+            alert('An error occuredHELLO')
+        }
+    });
+},1000);
+})
+</script> -->
+
+
+<!-- {%for i in data reversed%}
+<h3>DATE {{i.0}}</h3>
+<h3>TIME {{i.1}}</h3>
+<a href="{{i.2}}">
+<img src="{{i.2}}"alt='{{i.0}}  {{i.1}}' width="400" height="400">
+</a>
+{%endfor%} -->
+<h2>Recent Intrusion</h2><br>
+{%for i in data reversed%}
+<div class="gallery">
+  <a target="_blank" href="{{i.2}}">
+    <img src="{{i.2}}" alt="DATE {{i.0}} TIME {{i.1}}" width="600" height="400">
+  </a>
+  <div class="desc">DATE<br> {{i.0}} <br> TIME-<br> {{i.1}}</div>
+</div>
+{%endfor%}
+
+
+
+
+
+
+
+<script src="{% static 'main.js'%}"></script>
+
+</body>
+
+
+<!-- by using the below ajax script we are preventing any reload to our apge and sending the
+data to url /send -->
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyAKRXB4fZREOVDacw9dwehS6PVN4C4dK80",
+    authDomain: "nodmcuintro.firebaseapp.com",
+    databaseURL: "https://nodmcuintro-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "nodmcuintro",
+    storageBucket: "nodmcuintro.appspot.com",
+    messagingSenderId: "278910952430",
+    appId: "1:278910952430:web:0e6aa04d26d989c6d724ff"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+</script> -->
